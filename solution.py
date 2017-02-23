@@ -39,7 +39,7 @@ def naked_twins(values):
         the values dictionary with the naked twins eliminated from peers.
     """
     # print(values)
-    display(values)
+    # display(values)
 
     # Find all instances of naked twins
     for unit in unitlist:
@@ -53,8 +53,8 @@ def naked_twins(values):
                 for peer in unit:
                     if box != peer and possible_twin == values[peer]:
                         twins.append(peer)
-            if twins:
-                print(twins, unit)
+            # if twins:
+            #     print(twins, unit)
             if twins and len(twins) == 2:
                 for peer2 in unit:
                     for digit in possible_twin:
@@ -62,8 +62,8 @@ def naked_twins(values):
                             # same thing as the elimnate method - need to reassign because replace
                             # doesn't make the change in place
                             values[peer2] = values[peer2].replace(digit,'')
-    print("solution:")
-    display(values)
+    # print("solution:")
+    # display(values)
     return values
     # Eliminate the naked twins as possibilities for their peers
 
