@@ -3,11 +3,17 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: Because we repeatedly apply the Naked Twins constraint until all units satisfy this constraint, leaving us will a sudoku puzzle that is closer to being fully solved
+A: Because we first find a pair of boxes in the same unit who have the same exact pair of possibilities. Then we choose one value for each one of those boxes which minimizes
+the legal values for all other boxes in that unit as now we have assigned values to each of these boxes and will now perform search() down both of these possible branches 
+and see which one will return a valid result. And now since we can take out both of these possible values in the naked twins from other boxes in any of the units this pair
+resides in, we possibly might be assigning definite values to other boxes which will then further eliminate more possibilities from other boxes - thus propagating the constraint
+of the naked twins to a possible solution
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: Same as we use constraint propagation to solve a 'normal' sudoku. All we have done is added 2 more units and thus 2 more constraints that we repeatedly apply until we solve the puzzle.
+A: Same as we use constraint propagation to solve a 'normal' sudoku. All we have done is added 2 more units. So when we have a constraint (like a naked twin in a unit, an assigned value in 
+one box etc..) then we can eliminate that value from being a possible value for all peers of that box. This reduces the number of possiblities in every peer constraint which in turn could 
+result in a peer having a definite value in which then we could eliminate that value from the peers of that peer and so on. 
 
 ### Install
 
